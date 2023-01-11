@@ -1,12 +1,26 @@
-﻿using AsanPardakhtTest.Domain.Common;
+﻿namespace AsanPardakhtTest.Domain.Entities;
 
-namespace AsanPardakhtTest.Domain.Entities
+public class Person : BaseAuditableEntity
 {
-    public class Person : BaseAuditableEntity
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+    #region Props
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string NationalId { get; set; }
+    public IReadOnlyCollection<Address> Addresses { get; private set; }
+    #endregion
 
-        public IList<Address> Addresses { get; set; }
+    #region Ctor
+    private Person() { }
+
+    public Person(string firstName, string lastName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
     }
+    #endregion
+
+    #region Commands
+    public static Person Create(string firstName, string lastName)
+        => new(firstName, lastName);
+    #endregion
 }
