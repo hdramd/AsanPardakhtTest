@@ -1,4 +1,5 @@
 ﻿using AsanPardakhtTest.Application.Addresses.Commands.CreateAddress;
+using AsanPardakhtTest.Application.Addresses.Queries.GetAddressesByProviance;
 using AsanPardakhtTest.Application.Common.Models;
 using AsanPardakhtTest.Application.Persons.Commands.CreatePerson;
 using MediatR;
@@ -41,7 +42,7 @@ namespace AsanPardakhtTest.Api.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(Result), 500)]
         [HttpGet]
-        public async Task<IActionResult> GetByProviance([FromBody] CreateAddressCommand command)
+        public async Task<IActionResult> GetByProviance([FromQuery] GetAddressesByProvianceQuery command)
         {
             var result = await Mediator.Send(command);
 
