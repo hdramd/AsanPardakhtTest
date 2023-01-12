@@ -19,8 +19,8 @@ public class GetAddressesByProvianceQueryHandler : IRequestHandler<GetAddressesB
     {
         //TODO:Return data as paginated list
         var addresses = await _dbContext.Addresses
-               .Where(x => x.Proviance.Equals(request.Proviance)
-                   && x.Created <= DateTime.Now.AddMinutes(-10))
+               .Where(x => x.Proviance.ToLower().Trim().Equals(request.Proviance.ToLower().Trim())
+                   && x.Created >= DateTime.Now.AddMinutes(-10))
                .Select(x => new AddressDto
                {
                    Id = x.Id,

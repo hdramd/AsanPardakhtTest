@@ -1,7 +1,6 @@
 ﻿using AsanPardakhtTest.Application.Addresses.Commands.CreateAddress;
 using AsanPardakhtTest.Application.Addresses.Queries.GetAddressesByProviance;
 using AsanPardakhtTest.Application.Common.Models;
-using AsanPardakhtTest.Application.Persons.Commands.CreatePerson;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -41,7 +40,7 @@ namespace AsanPardakhtTest.Api.Controllers
         /// <response code="500">if an unexpected error happen</response>
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(Result), 500)]
-        [HttpGet]
+        [HttpGet(nameof(GetByProviance))]
         public async Task<IActionResult> GetByProviance([FromQuery] GetAddressesByProvianceQuery command)
         {
             var result = await Mediator.Send(command);

@@ -22,7 +22,8 @@ namespace AsanPardakhtTest.Application.Persons.Commands.CreatePerson
             RuleFor(v => v.NationalId)
                 .NotEmpty().WithMessage("NationalId is required.")
                 .Must(BeValid).WithMessage("NationalId is not valid.")
-                .MustAsync(BeUniqueNationalId).WithMessage("The specified NationalId already exists.");
+                .Must(BeUniqueNationalId).WithMessage("The specified NationalId already exists.");//TODO:Use MustAsync
+
         }
 
         private bool BeValid(string arg)
@@ -31,10 +32,10 @@ namespace AsanPardakhtTest.Application.Persons.Commands.CreatePerson
             return true;
         }
 
-        public async Task<bool> BeUniqueNationalId(string nationalId, CancellationToken cancellationToken)
+        public bool BeUniqueNationalId(string nationalId)
         {
-            return await _context.People
-                .AllAsync(x => x.NationalId != nationalId, cancellationToken);
+            return !_context.People
+                .Any(x => x.NationalId.Equals(nationalId));
         }
     }
 }

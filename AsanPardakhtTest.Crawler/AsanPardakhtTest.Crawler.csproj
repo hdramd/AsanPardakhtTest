@@ -9,12 +9,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AsanPardakhtTest.Client" Version="1.0.0" />
 		<PackageReference Include="FluentScheduler" Version="5.5.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Refit" Version="6.3.2" />
 	</ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AsanPardakhtTest.Application.Common.Interfaces;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
@@ -10,7 +12,11 @@ public static class ConfigureServices
     {
         services.AddHttpContextAccessor();
 
-        services.AddControllers();
+        services.AddControllers()
+             .AddFluentValidation(mvcConfiguration =>
+             {
+                 mvcConfiguration.RegisterValidatorsFromAssemblyContaining<IApplicationDbContext>();
+             });
 
         #region Swagger
 
