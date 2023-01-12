@@ -1,4 +1,4 @@
-﻿namespace AsanPardakhtTest.Crawler
+﻿namespace AsanPardakhtTest.Crawler.Entities
 {
     public class Address
     {

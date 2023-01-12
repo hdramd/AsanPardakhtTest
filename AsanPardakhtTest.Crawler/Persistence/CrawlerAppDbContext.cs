@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AsanPardakhtTest.Crawler.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace AsanPardakhtTest.Crawler
+namespace AsanPardakhtTest.Crawler.Persistence
 {
     public class CrawlerAppDbContext : DbContext
     {

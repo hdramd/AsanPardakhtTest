@@ -1,32 +1,13 @@
-﻿using AsanPardakhtTest.Client.Interfaces;
-using AsanPardakhtTest.Client.Models;
+﻿using AsanPardakhtTest.Crawler.Scheduler;
 using FluentScheduler;
-using Refit;
-using System.Runtime;
+
+Console.Title = "Address Crawler";
+Console.WriteLine("Crawler Runs every 10 minutes ...");
 
 JobManager.Initialize();
 
-JobManager.AddJob(
-    () => Console.WriteLine("1 seq just passed."),
-    s => s.ToRunEvery(1).Seconds()
+JobManager.AddJob(new AddressCrawlerJob(),
+    s => s.ToRunEvery(10).Minutes()
 );
 
-var addressApi = RestService.For<IAddressApi>("http://localhost:5000/api");
-
-if (addressApi == null)
-    Console.Error.WriteLine("Failed to load address api!");
-
-try
-{
-    var result = await addressApi.GetByProvianceAsync(new GetAddressesByProvianceQuery
-    {
-        Proviance = "Tehran"
-    });
-}
-catch (Exception ex)
-{
-    Console.Error.WriteLine($"ssss: {ex.Message}");
-    throw;
-}
-
-    Console.ReadLine();
+Console.ReadLine();
