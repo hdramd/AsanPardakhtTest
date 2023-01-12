@@ -1,6 +1,7 @@
 ﻿using AutoMapper.QueryableExtensions;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using AsanPardakhtTest.Application.Common.Models;
 
 namespace AsanPardakhtTest.Application.Common.Mappings;
 

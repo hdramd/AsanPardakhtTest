@@ -1,4 +1,5 @@
 ﻿using AsanPardakhtTest.Application.Common.Interfaces;
+using AsanPardakhtTest.Domain.Entities;
 using MediatR;
 
 namespace AsanPardakhtTest.Application.Persons.Commands.CreatePerson
