@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>disable</Nullable>
+		<Authors>Heidar Ahmadi</Authors>
+		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Folder Include="Interfaces\" />
+	  <Folder Include="Models\" />
+	</ItemGroup>
+
+</Project>

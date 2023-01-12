@@ -19,8 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Address\Commands\" />
-	  <Folder Include="Address\Queries\" />
 	  <Folder Include="Person\Commands\DeletePerson\" />
 	  <Folder Include="Person\Commands\UpdatePerson\" />
 	  <Folder Include="Person\Queries\" />
