@@ -49,7 +49,7 @@ public class ApplicationDbContextInitialiser
     {
         if (!_context.People.Any())
         {
-            var person = Person.Create("Heidar", "Ahmadi");
+            var person = Person.Create("Heidar", "Ahmadi","4940063011");
             _context.People.Add(person);
             await _context.SaveChangesAsync();
         }

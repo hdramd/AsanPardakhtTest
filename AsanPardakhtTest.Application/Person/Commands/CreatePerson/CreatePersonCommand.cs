@@ -20,10 +20,11 @@ namespace AsanPardakhtTest.Application.Persons.Commands.CreatePerson
             _context = context;
         }
 
-        public async Task<Result<int>> Handle(CreatePersonCommand request, 
+        public async Task<Result<int>> Handle(CreatePersonCommand request,
             CancellationToken cancellationToken)
         {
-            var person = Person.Create(request.FirstName, request.LastName);
+            var person = Person.Create(request.FirstName, 
+                request.LastName, request.NationalId);
             _context.People.Add(person);
             await _context.SaveChangesAsync(cancellationToken);
             return Result.Successfull(person.Id);
