@@ -1,17 +1,18 @@
 ﻿using AsanPardakhtTest.Application.Common.Interfaces;
+using AsanPardakhtTest.Application.Common.Models;
 using AsanPardakhtTest.Domain.Entities;
 using MediatR;
 
 namespace AsanPardakhtTest.Application.Persons.Commands.CreatePerson
 {
-    public class CreatePersonCommand : IRequest<int>
+    public class CreatePersonCommand : IRequest<Result<int>>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NationalId { get; set; }
     }
 
-    public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, int>
+    public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, Result<int>>
     {
         private readonly IApplicationDbContext _context;
         public CreatePersonCommandHandler(IApplicationDbContext context)
@@ -19,12 +20,13 @@ namespace AsanPardakhtTest.Application.Persons.Commands.CreatePerson
             _context = context;
         }
 
-        public async Task<int> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(CreatePersonCommand request, 
+            CancellationToken cancellationToken)
         {
             var person = Person.Create(request.FirstName, request.LastName);
             _context.People.Add(person);
             await _context.SaveChangesAsync(cancellationToken);
-            return person.Id;
+            return Result.Successfull(person.Id);
         }
     }
 }

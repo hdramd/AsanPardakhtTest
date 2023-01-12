@@ -2,23 +2,35 @@
 
 public class Result
 {
-    internal Result(bool succeeded, IEnumerable<string> errors)
-    {
-        Succeeded = succeeded;
-        Errors = errors.ToArray();
-    }
-
     public bool Succeeded { get; set; }
+    public string ErrorMessage { get; set; }
 
-    public string[] Errors { get; set; }
+    public static Result Successfull() => new() { Succeeded = true };
 
-    public static Result Success()
+    public static Result<TData> Successfull<TData>(TData data)
     {
-        return new Result(true, Array.Empty<string>());
+        return new Result<TData>
+        {
+            Succeeded = true,
+            Data = data
+        };
     }
 
-    public static Result Failure(IEnumerable<string> errors)
+    public static Result Failed(string errorMessage) => new() { ErrorMessage = errorMessage };
+
+    public static Result<TData> Failed<TData>(string errorMessage)
     {
-        return new Result(false, errors);
+        return new Result<TData>
+        {
+            Succeeded = false,
+            ErrorMessage = errorMessage
+        };
     }
+}
+
+public class Result<TData>
+{
+    public TData Data { get; set; }
+    public bool Succeeded { get; set; }
+    public string ErrorMessage { get; set; }
 }
