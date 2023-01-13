@@ -25,8 +25,17 @@
 
         #region Commands
         public static Address Create(int personId, string proviance,
-            string city, string description) 
+            string city, string description)
             => new(personId, proviance, city, description);
+
+        public void Update(int personId, string proviance,
+            string city, string description)
+        {
+            PersonId = personId;
+            Proviance = proviance;
+            City = city;
+            Description = description;
+        }
         #endregion
     }
 }

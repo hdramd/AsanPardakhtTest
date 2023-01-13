@@ -1,4 +1,5 @@
 ﻿using AsanPardakhtTest.Application.Addresses.Commands.CreateAddress;
+using AsanPardakhtTest.Application.Addresses.Commands.UpdateAddress;
 using AsanPardakhtTest.Application.Addresses.Queries.GetAddressesByProviance;
 using AsanPardakhtTest.Application.Common.Models;
 using MediatR;
@@ -30,7 +31,31 @@ namespace AsanPardakhtTest.Api.Controllers
             if (result.Succeeded == false)
                 return BadRequest(result);
 
-            return Created(Url.Link("", new { id = result.Data }), result.Data);
+            return Created(string.Empty, result.Data);
+        }
+
+        /// <summary>
+        /// Update address
+        /// </summary>
+        /// <response code="204">if update address done successfully</response>
+        /// <response code="400">if validation failed</response>
+        /// <response code="500">if an unexpected error happen</response>
+        [ProducesResponseType(typeof(int), 204)]
+        [ProducesResponseType(typeof(Result), 400)]
+        [ProducesResponseType(typeof(Result), 500)]
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] UpdateAddressCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+            var result = await Mediator.Send(command);
+
+            if (result.Succeeded == false)
+                return BadRequest(result);
+
+            return NoContent();
         }
 
         /// <summary>
