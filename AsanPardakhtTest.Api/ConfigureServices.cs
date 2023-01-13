@@ -1,4 +1,5 @@
-﻿using AsanPardakhtTest.Api.Services;
+﻿using AsanPardakhtTest.Api.Filters;
+using AsanPardakhtTest.Api.Services;
 using AsanPardakhtTest.Application.Common.Interfaces;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,15 @@ public static class ConfigureServices
 
         services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
-        services.AddControllers()
-             .AddFluentValidation(mvcConfiguration =>
-             {
-                 mvcConfiguration.RegisterValidatorsFromAssemblyContaining<IApplicationDbContext>();
-             });
+        //services.AddControllers()
+        //     .AddFluentValidation(mvcConfiguration =>
+        //     {
+        //         mvcConfiguration.RegisterValidatorsFromAssemblyContaining<IApplicationDbContext>();
+        //     });
+
+        services.AddControllers(options =>
+            options.Filters.Add<ApiExceptionFilterAttribute>())
+        .AddFluentValidation(x => x.AutomaticValidationEnabled = false);
 
         #region Swagger
 
