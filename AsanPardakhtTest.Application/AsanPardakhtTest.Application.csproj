@@ -18,10 +18,4 @@
 	  <ProjectReference Include="..\AsanPardakhtTest.Domain\AsanPardakhtTest.Domain.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Person\Commands\DeletePerson\" />
-	  <Folder Include="Person\Commands\UpdatePerson\" />
-	  <Folder Include="Person\Queries\" />
-	</ItemGroup>
-
 </Project>

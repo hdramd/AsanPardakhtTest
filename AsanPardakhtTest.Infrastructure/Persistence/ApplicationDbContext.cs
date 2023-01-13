@@ -18,8 +18,6 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
     }
 
-    public DbSet<Person> People => Set<Person>();
-
     public DbSet<Address> Addresses => Set<Address>();
 
     protected override void OnModelCreating(ModelBuilder builder)

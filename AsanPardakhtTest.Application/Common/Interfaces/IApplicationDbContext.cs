@@ -5,8 +5,7 @@ namespace AsanPardakhtTest.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<Person> People { get; }
-        DbSet<Domain.Entities.Address> Addresses { get; }
+        DbSet<Address> Addresses { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

@@ -1,4 +1,5 @@
-﻿using AsanPardakhtTest.Application.Common.Interfaces;
+﻿using AsanPardakhtTest.Api.Services;
+using AsanPardakhtTest.Application.Common.Interfaces;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,8 @@ public static class ConfigureServices
     public static IServiceCollection AddApiServices(this IServiceCollection services)
     {
         services.AddHttpContextAccessor();
+
+        services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
         services.AddControllers()
              .AddFluentValidation(mvcConfiguration =>

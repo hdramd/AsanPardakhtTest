@@ -6,17 +6,14 @@
         public string Proviance { get; private set; }
         public string City { get; private set; }
         public string Description { get; private set; }
-        public int PersonId { get; private set; }
-        public virtual Person Person { get; private set; }
         #endregion
 
         #region Ctor
         private Address() { }
 
-        public Address(int personId, string proviance,
+        public Address(string proviance,
             string city, string description)
         {
-            PersonId = personId;
             Proviance = proviance;
             City = city;
             Description = description;
@@ -24,14 +21,13 @@
         #endregion
 
         #region Commands
-        public static Address Create(int personId, string proviance,
+        public static Address Create(string proviance,
             string city, string description)
-            => new(personId, proviance, city, description);
+            => new(proviance, city, description);
 
-        public void Update(int personId, string proviance,
+        public void Update(string proviance,
             string city, string description)
         {
-            PersonId = personId;
             Proviance = proviance;
             City = city;
             Description = description;

@@ -13,17 +13,18 @@ namespace AsanPardakhtTest.Application.Addresses.Commands.UpdateAddress
             _dbContext = dbContext;
         }
 
-        public async Task<Result> Handle(UpdateAddressCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(UpdateAddressCommand request, 
+            CancellationToken cancellationToken)
         {
             var address = await _dbContext.Addresses
                 .FirstOrDefaultAsync(x => x.Id.Equals(request.Id),
                     cancellationToken: cancellationToken);
 
             if (address == null)
-                return Result.Failed("Not found.");
+                return Result.Failed("Address not found.");
 
-            address.Update(request.PersonId, request.Proviance,
-                request.City, request.Description);
+            address.Update(request.Proviance, request.City, 
+                request.Description);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

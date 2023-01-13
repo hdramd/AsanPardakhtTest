@@ -1,5 +1,4 @@
-﻿using AsanPardakhtTest.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace AsanPardakhtTest.Infrastructure.Persistence;
@@ -47,11 +46,6 @@ public class ApplicationDbContextInitialiser
 
     public async Task TrySeedAsync()
     {
-        if (!_context.People.Any())
-        {
-            var person = Person.Create("Heidar", "Ahmadi","4940063011");
-            _context.People.Add(person);
-            await _context.SaveChangesAsync();
-        }
+        //TODO:Seed some things ...
     }
 }
