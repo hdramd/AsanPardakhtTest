@@ -34,8 +34,6 @@ namespace AsanPardakhtTest.Application.Addresses.Commands.UpdateAddress
 
         private bool BeOwnerOfAddress(int id)
         {
-
-            return false;
             var address = _dbContext.Addresses
                    .FirstOrDefault(x => x.Id == id);
 
