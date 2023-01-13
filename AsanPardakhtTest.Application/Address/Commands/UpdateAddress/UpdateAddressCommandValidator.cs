@@ -34,11 +34,13 @@ namespace AsanPardakhtTest.Application.Addresses.Commands.UpdateAddress
 
         private bool BeOwnerOfAddress(int id)
         {
+
+            return false;
             var address = _dbContext.Addresses
                    .FirstOrDefault(x => x.Id == id);
 
             return address != null
-                && address.CreatedBy.Equals(_currentUserService.UserId);
+                && address.CreatedBy == _currentUserService.UserId;
         }
     }
 }
