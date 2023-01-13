@@ -1,6 +1,8 @@
 ﻿using AsanPardakhtTest.Application.Addresses.Commands.CreateAddress;
 using AsanPardakhtTest.Application.Addresses.Commands.UpdateAddress;
 using AsanPardakhtTest.Application.Addresses.Queries.GetAddressesByProviance;
+using AsanPardakhtTest.Application.Addresses.Queries.GetAddressesWithPaginationQuery;
+using AsanPardakhtTest.Application.Addresses.Queries.Models;
 using AsanPardakhtTest.Application.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -59,6 +61,24 @@ namespace AsanPardakhtTest.Api.Controllers
         }
 
         /// <summary>
+        /// Get paginated list of addresses
+        /// </summary>
+        /// <response code="200">Return a paginated list of addresses</response>
+        /// <response code="500">if an unexpected error happen</response>
+        [ProducesResponseType(typeof(Result<PaginatedList<AddressDto>>), 200)]
+        [ProducesResponseType(typeof(Result), 500)]
+        [HttpGet(nameof(GetPaginatedList))]
+        public async Task<IActionResult> GetPaginatedList([FromQuery] GetAddressesWithPaginationQuery query)
+        {
+            var result = await Mediator.Send(query);
+
+            if (result.Succeeded == false)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        /// <summary>
         /// Get by proviance name
         /// </summary>
         /// <response code="200">Return a list af addresses when created in 10 past minutes</response>
@@ -66,9 +86,9 @@ namespace AsanPardakhtTest.Api.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(Result), 500)]
         [HttpGet(nameof(GetByProviance))]
-        public async Task<IActionResult> GetByProviance([FromQuery] GetAddressesByProvianceQuery command)
+        public async Task<IActionResult> GetByProviance([FromQuery] GetAddressesByProvianceQuery query)
         {
-            var result = await Mediator.Send(command);
+            var result = await Mediator.Send(query);
 
             if (result.Succeeded == false)
                 return BadRequest(result);

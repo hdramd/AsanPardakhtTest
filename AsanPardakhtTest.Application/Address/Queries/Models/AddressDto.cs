@@ -1,6 +1,9 @@
-﻿namespace AsanPardakhtTest.Application.Addresses.Queries.Models
+﻿using AsanPardakhtTest.Application.Common.Mappings;
+using AsanPardakhtTest.Domain.Entities;
+
+namespace AsanPardakhtTest.Application.Addresses.Queries.Models
 {
-    public class AddressDto
+    public class AddressDto : IMapFrom<Address>
     {
         public int Id { get; set; }
         public string Proviance { get; set; }
