@@ -7,15 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3775BA12-55E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{078FB4AF-1EA4-4232-AD87-DF4850F7A4FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsanPardakhtTest.Domain", "AsanPardakhtTest.Domain\AsanPardakhtTest.Domain.csproj", "{661AFC12-87E2-476F-8B85-512D7F01DFD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsanPardakhtTest.Domain", "src\App\AsanPardakhtTest.Domain\AsanPardakhtTest.Domain.csproj", "{661AFC12-87E2-476F-8B85-512D7F01DFD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsanPardakhtTest.Application", "AsanPardakhtTest.Application\AsanPardakhtTest.Application.csproj", "{1AACB4AC-610B-43DB-B578-B87652562984}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsanPardakhtTest.Application", "src\App\AsanPardakhtTest.Application\AsanPardakhtTest.Application.csproj", "{1AACB4AC-610B-43DB-B578-B87652562984}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Infrastructure", "AsanPardakhtTest.Infrastructure\AsanPardakhtTest.Infrastructure.csproj", "{CC182AD9-BC8D-4B8D-A670-53992C6E8A07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Infrastructure", "src\App\AsanPardakhtTest.Infrastructure\AsanPardakhtTest.Infrastructure.csproj", "{CC182AD9-BC8D-4B8D-A670-53992C6E8A07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Api", "AsanPardakhtTest.Api\AsanPardakhtTest.Api.csproj", "{E8A278B7-99B1-4E8E-BE57-48E628769076}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Api", "src\App\AsanPardakhtTest.Api\AsanPardakhtTest.Api.csproj", "{E8A278B7-99B1-4E8E-BE57-48E628769076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Crawler", "AsanPardakhtTest.Crawler\AsanPardakhtTest.Crawler.csproj", "{01FCC5C0-A977-4A46-85EF-A7920FD30EF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Crawler", "src\Crawler\AsanPardakhtTest.Crawler\AsanPardakhtTest.Crawler.csproj", "{01FCC5C0-A977-4A46-85EF-A7920FD30EF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{9035BEB2-DEC6-4284-92A6-AED0CCBF313B}"
 EndProject
@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{0E2428
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crawler", "Crawler", "{024DDDF2-A243-4643-B8D8-56CE1AE6DFE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Client", "AsanPardakhtTest.Client\AsanPardakhtTest.Client.csproj", "{488C981B-E750-4455-BFCB-EDCD052CE6E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsanPardakhtTest.Client", "src\Client\AsanPardakhtTest.Client\AsanPardakhtTest.Client.csproj", "{488C981B-E750-4455-BFCB-EDCD052CE6E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
